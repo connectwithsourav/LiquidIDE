@@ -1,0 +1,6 @@
+{
+  "name": "LiquidIDE",
+  "description": "A browser-based IDE for HTML, CSS, and JS with live previews, syntax highlighting, and ZIP export.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
