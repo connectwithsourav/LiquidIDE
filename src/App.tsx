@@ -1050,6 +1050,11 @@ export default function App() {
         </div>
       )}
 
+      {/* Global Drag Overlay to guarantee mouseup capture */}
+      {(isDraggingPane || isDraggingWidth) && (
+        <div className="fixed inset-0 z-[99999] cursor-ew-resize" />
+      )}
+
       {renderDialog()}
 
       {/* Header / Toolbar */}

@@ -807,7 +807,7 @@ document.getElementById('contactForm')?.addEventListener('submit', function(e) {
     }, 3000);
 });
 
-// 4. Navigation Fix (Ensures smooth scrolling inside iframe/IDE environments)
+// 4. Navigation Fix (Ensures smooth scrolling inside iframe/IDE environments without scrolling parent window)
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -818,7 +818,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         } else {
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
-                targetElement.scrollIntoView({
+                const navHeight = document.querySelector('nav') ? document.querySelector('nav').offsetHeight : 85;
+                const top = targetElement.getBoundingClientRect().top + window.scrollY - navHeight;
+                window.scrollTo({
+                    top: top,
                     behavior: 'smooth'
                 });
             }
